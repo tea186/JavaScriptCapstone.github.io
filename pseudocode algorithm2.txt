@@ -1,0 +1,46 @@
+Display an opening message and a form to enter player names
+When the form is submitted, retrieve the player names and start the game
+Initialize the game variables:
+   Set the current turn to X
+   Clear the board
+   Add click event listeners to each cell on the board
+   Set the hover class on the board
+   Hide the winning message
+Handle cell click event:
+   Get the clicked cell
+   Determine the current player's class (X or O)
+   Place the current player's mark in the clicked cell
+   Check if the current player has won:
+	Iterate through the winning combinations:
+		Check if the current player has marked all the cells in a winning combination
+   If a winning combination is found, end the game and display the winning message
+   If the game is a draw:
+		Check if all cells have been marked
+		If so, end the game and display a draw message
+   If the game is not over, swap the turn to the other player
+   Set the hover class on the board
+End the game:
+	Display the winning message with the appropriate text and background color
+	Add a click event listener to the restart button to restart the game
+	Restart the game:
+		Show the opening message and hide the game container
+Check for a draw:
+	Iterate through all cells and check if any are unmarked
+	If all cells are marked, the game is a draw
+Place a mark in a cell:
+	Add the current player's class to the cell
+	Set the background color of the cell based on the current player's class
+Swap turns:
+	Toggle the current turn between X and O
+Set the hover class on the board:
+	Remove the X and O classes from the board
+    Add the current player's class to the board
+Check for a win:
+    Iterate through the winning combinations
+    Check if the current player has marked all the cells in any winning combination
+    If a winning combination is found, return true
+Update the turn message:
+    Update the player turn element with the current player's name
+    Update the player turn element's class and color based on the current player's class
+	
+	

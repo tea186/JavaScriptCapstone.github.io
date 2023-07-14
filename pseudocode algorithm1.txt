@@ -1,0 +1,13 @@
+Display the Tic-Tac-Toe game title
+Display the initial player's turn message as "X's Turn"
+Display an empty game board with 9 cells
+Initialize an empty winning message
+Add a restart button to reset the game
+Set up event listeners for cell clicks
+Set up the winning combinations for Tic-Tac-Toe
+Set the initial turn to X's turn
+Start the game
+Switch the turn from X to O or from O to X
+Check who won or if it a draw
+Display winning message
+Reset the game board, add event listeners, set initial turn message, and hide the winning message

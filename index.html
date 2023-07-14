@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+    <div id="openingMessage" class="opening-message">
+        <h2>Enter Player Names</h2>
+        <form id="nameForm">
+            <label for="player1">Player X:</label>
+            <input type="text" id="player1" name="player1" required>
+            <br>
+            <label for="player2">Player O:</label>
+            <input type="text" id="player2" name="player2" required>
+            <br>
+            <button type="submit">Start Game</button>
+        </form>
+    </div>
+
+    <div id="gameContainer" style="display: none;">
+        <h1 class="game-title">Tic-Tac-Toe Game</h1>
+        <h1 class="turn-message">
+            <span id="playerTurn">X's Turn</span>
+            <span id="playerColor"></span>
+        </h1>
+        <div class="board" id="board">
+            <div class="cell" data-cell></div>
+            <div class="cell" data-cell></div>
+            <div class="cell" data-cell></div>
+            <div class="cell" data-cell></div>
+            <div class="cell" data-cell></div>
+            <div class="cell" data-cell></div>
+            <div class="cell" data-cell></div>
+            <div class="cell" data-cell></div>
+            <div class="cell" data-cell></div>
+        </div>
+        <div class="winning-message" id="winningMessage">
+            <div data-winning-message-text></div>
+            <button id="restartButton">Restart</button>
+        </div>
+    </div>
+    <script src="Script2.js"></script>
+</body>
+</html>

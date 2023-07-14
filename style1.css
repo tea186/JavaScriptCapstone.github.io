@@ -1,0 +1,171 @@
+﻿*, *::after, *::before {
+    box-sizing: border-box;
+}
+
+:root {
+    --cell-size: 100px;
+    --mark-size: calc(var(--cell-size) * .9);
+    --x-color: lightblue;
+    --o-color: pink;
+    --l: 10px; /* X line-width */
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.turn-message {
+    font-size: 3.5em;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.turn-message span {
+    font-weight: bold;
+}
+
+.turn-message span.x {
+    color: var(--x-color);
+}
+
+.turn-message span.circle {
+    color: var(--o-color);
+}
+
+.board {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: repeat(3, auto);
+}
+
+.cell {
+    width: var(--cell-size);
+    height: var(--cell-size);
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+}
+
+.cell:first-child,
+.cell:nth-child(2),
+.cell:nth-child(3) {
+    border-top: none;
+}
+
+.cell:nth-child(3n + 1) {
+    border-left: none;
+}
+
+.cell:nth-child(3n + 3) {
+    border-right: none;
+}
+
+.cell:last-child,
+.cell:nth-child(8),
+.cell:nth-child(7) {
+    border-bottom: none;
+}
+
+.cell.x,
+.cell.circle {
+    cursor: not-allowed;
+}
+
+    .cell.x::before,
+    .cell.x::after {
+        content: "X";
+        position: absolute;
+        width: var(--mark-size);
+        height: var(--mark-size);
+        font-size: 4em; /* Adjust the font size as desired */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: White; /* Adjust the color as desired */
+    }
+
+    .cell.circle::before {
+        content: "O";
+        position: absolute;
+        width: var(--mark-size);
+        height: var(--mark-size);
+        font-size: 4em; /* Adjust the font size as desired */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: White; /* Adjust the color as desired */
+    }
+
+/* for cross */
+.board.x .cell:not(.circle):not(.x):hover {
+    background: linear-gradient(to top right, transparent calc(50% - var(--l) / 2), var(--x-color) calc(50% - var(--l) / 2) calc(50% + var(--l) / 2), transparent calc(50% + var(--l) / 2)), linear-gradient(to bottom right, transparent calc(50% - var(--l) / 2), var(--x-color) calc(50% - var(--l) / 2) calc(50% + var(--l) / 2), transparent calc(50% + var(--l) / 2));
+    background-size: 80% 80%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* for cross (set) */
+.cell:not(.circle).x {
+    background: linear-gradient(to top right, transparent calc(50% - var(--l) / 2), var(--color-set) calc(50% - var(--l) / 2) calc(50% + var(--l) / 2), transparent calc(50% + var(--l) / 2)), linear-gradient(to bottom right, transparent calc(50% - var(--l) / 2), var(--color-set) calc(50% - var(--l) / 2) calc(50% + var(--l) / 2), transparent calc(50% + var(--l) / 2));
+    background-size: 80% 80%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* for circle */
+.board.circle .cell:not(.circle):not(.x):hover {
+    background: radial-gradient(var(--o-color) 60%, transparent 60%);
+}
+
+/* for circle (set) */
+.cell:not(.x).circle {
+    background: radial-gradient(var(--o-color) 60%, transparent 60%);
+}
+
+.winning-message {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--o-color);
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 5rem;
+    font-family: 'Courier New', Courier, monospace;
+    flex-direction: column;
+}
+
+.winning-message button {
+    border-radius: 10px;
+    font-size: 3rem;
+    background-color: white;
+    border: 1px solid var(--o-color);
+    padding: .25em .5em;
+    cursor: pointer;
+}
+
+.winning-message button:hover {
+    background-color: var(--o-color);
+    color: white;
+    border-color: white;
+}
+
+.winning-message.show {
+    display: flex;
+}
